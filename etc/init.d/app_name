@@ -38,8 +38,7 @@ foreverApp="forever"
 appName="app_name"
 
 start() {
-	echo "Starting $nodeApp"
-
+    echo -e "Starting $appName\n"
 	# Notice that we change the PATH because on reboot
 	# the PATH does not include the path to node.
 	# Launching forever with a full path
