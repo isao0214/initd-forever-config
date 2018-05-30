@@ -33,8 +33,9 @@ pidFile="/var/run/app_name.pid"
 logFile="/var/run/app_name.log"
 
 command="node"
-nodeApp="npm run start /var/www/app_name/"
+nodeApp="/usr/bin/npm --prefix /var/www/app_name/ run start"
 foreverApp="forever"
+appName="app_name"
 
 start() {
 	echo "Starting $nodeApp"
