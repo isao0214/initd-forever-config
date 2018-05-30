@@ -51,9 +51,9 @@ start() {
 }
 
 restart() {
-	echo -n "Restarting $nodeApp"
-	$foreverApp restart $nodeApp
-	RETVAL=$?
+    stop
+    start
+    RETVAL=$?
 }
 
 stop() {
