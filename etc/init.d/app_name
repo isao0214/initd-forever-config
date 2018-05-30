@@ -65,9 +65,13 @@ stop() {
 }
 
 status() {
-	echo -n "Status $nodeApp"
-	$foreverApp list
-	RETVAL=$?
+    if [ -e $pidFile ]; then
+        pid=$(cat $pidFile)
+        echo -e -n "$appName (pid $pid) is running...\n"
+    else
+        echo -e -n "$appName is stopped\n"
+    fi;
+    RETVAL=$?
 }
 
 case "$1" in
