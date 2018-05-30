@@ -57,9 +57,11 @@ restart() {
 }
 
 stop() {
-	echo -n "Shutting down $nodeApp"
-	$foreverApp stop $nodeApp
-	RETVAL=$?
+    if [ -e $pidFile ]; then
+        echo -e -n "Shutting down $appName\n"
+        cat $pidFile | xargs $foreverApp stop
+    fi;
+    RETVAL=$?
 }
 
 status() {
